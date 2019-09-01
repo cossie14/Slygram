@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6szdk4gtic&r5-o9+gclyyc4xkp@t%bk_6cp*06b#a$*!5t-o1'
+SECRET_KEY = '2qok!zrhfed_b$hn$up-qvq6^+j*4u+^4ad+wibe1u#+))4+2i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instagram.apps.InstagramConfig',
-    'bootstrap3',
+     'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -74,11 +74,10 @@ WSGI_APPLICATION = 'slygram.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'slygram',
+        'NAME': 'instagram',
         'USER': 'Sylviah',
     'PASSWORD':'sly',
     }
@@ -111,6 +110,7 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Africa/Nairobi'
 
+
 USE_I18N = True
 
 USE_L10N = True
@@ -125,4 +125,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-

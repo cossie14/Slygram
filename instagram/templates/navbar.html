@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'welcome' %}"><i class="fas fa-camera-retro"></i> | Slygram</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+  
+        <div class="">
+          <div class="col-sm-6 col-md-6">
+                {% if user.is_authenticated %}
+  
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-user fa-lg"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'new-article' %}">Create Post</a>
+                    <a class="dropdown-item" href="{% url 'new-profile'%}">Create Profile</a>
+                    <a class="dropdown-item" href="{% url 'profile'%}">Profile</a>
+                    <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+  
+                </li>
+                {% else %}
+                <li>
+                  <a class='btn btn-default' href="/accounts/login">Login</a>
+                </li>
+  
+                {% endif %}
+        </div>
+      </div>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Create Post</a>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+        </li> -->
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#"><i class="far fa-user fa-lg"></i></a>
+        </li> -->
+      </ul>
+  <div class="search">
+  
+  </div>
+      <form class="form-inline my-2 my-lg-0 navbar-form" role="search" action="{% url 'search_results' %}">
+        <input class="form-control mr-sm-2 search_bar text-center" type="search" placeholder="Search" aria-label="Search" name="image_name">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit" style="display:none">Search</button>
+      </form>
+  
+  </nav>
