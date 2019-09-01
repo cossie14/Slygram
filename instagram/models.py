@@ -25,12 +25,13 @@ class Image(models.Model):
     image_name = models.CharField(max_length=30, null=True)
     image_caption = models.TextField(null =True)
     profile = models.ForeignKey(Profile, null=True)
-    user = models.ForeignKey(User, null=True)
     likes = models.IntegerField(default=0)
     date_posted = models.DateTimeField(auto_now_add=True, null=True)
     user = models.ForeignKey(User, null=True)
+   
+ 
     class Meta:
-       ordering = ['-posted']
+       ordering = ['date_posted']
 
     def save_image(self):
         self.save()
@@ -49,7 +50,7 @@ class Comments(models.Model):
     comment = models.CharField(max_length=200)
     user = models.ForeignKey(User, null=True)
     image = models.ForeignKey(Image, null=True)
-    comment_posted = models.DateTimeField(auto_now_add=True, null=True)
+    comment_time = models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
-       ordering = ['-comment-posted']
+       ordering = ['-comment_time']

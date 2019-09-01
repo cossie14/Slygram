@@ -32,7 +32,7 @@ def new_story(request, username):
             image.save()
         return redirect('allslygram')
     else:
-        form = NewStatusForm()
+        form = NewStoryForm()
     return render(request, 'new_story.html', {"form": form})
 
 @login_required(login_url='/accounts/login')
@@ -42,11 +42,11 @@ def user_profile(request, user_id):
     return render(request, 'profile.html', {'profile':profile, 'images':images})
 
 @login_required(login_url='/accounts/login')
-def single_image(request, photo_id):
+def single_pic(request, photo_id):
     image = Image.objects.get(id = photo_id)
     return render(request, 'single_pic.html', {'image':image})
 
-def find_profile(request):
+def profile(request):
     if 'images' in request.GET and request.GET['images']:
         search_term = request.GET.get('images')
         searched_image = Image.search_by_user(search_term)
