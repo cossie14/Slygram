@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
 
- url(r'^$', views.newsfeed, name='allslygram'),
+ url(r'^$', views.newsfeed, name='all-slygram'),
  url(r'^accounts/profile/', views.profile, name ='myProfile'),
  url(r'^new/story/(?P<username>[-_\w.]+)$', views.new_story, name='newStory'),
  url(r'^user/(\d+)', views.profile, name='Profiles'),
