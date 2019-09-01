@@ -24,13 +24,13 @@ def profile(request):
 def new_story(request, username):
     current_user = request.user
     username = current_user.username
-    if request.method == 'POST':
+    if request.method == 'Post':
         form = NewStatusForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.save()
             image.user = request.user
             image.save()
-        return redirect('allslygram')
+        return redirect('all-slygram')
     else:
         form = NewStoryForm()
     return render(request, 'new_story.html', {"form": form})
@@ -56,11 +56,11 @@ def profile(request):
         return render(request, 'single_pic.html')
 
 @login_required (login_url='/accounts/register/')
-def single_image_like(request, photo_id):
+def single_pic_like(request, photo_id):
     image = Image.objects.get(id=photo_id)
     image.likes = image.likes + 1
     image.save()
-    return redirect('allslygram')
+    return redirect('all-slygram')
 
 @login_required(login_url='/accounts/login/')
 def new_comment(request, username):
@@ -72,7 +72,7 @@ def new_comment(request, username):
             comment = form.save()
             comment.user = request.user
             comment.save()
-        return redirect('allslygram')
+        return redirect('all-slygram')
     else:
         form = NewCommentForm()
     return render(request, 'comment.html', {"form": form})
