@@ -8,11 +8,13 @@ urlpatterns=[
  url(r'^$', views.newsfeed, name=''),
  url(r'^accounts/profile/', views.profile, name ='Profile'),
  url(r'^new/story/(?P<username>[-_\w.]+)$', views.new_story, name='newStory'),
- url(r'^user/(\d+)', views.profile, name='Profiles'),
+
  url(r'^image/(\d+)', views.single_pic, name='singlePic'),
- url(r'^profile/', views.profile, name='Profile'),
+ 
  url(r'^single_image/likes/(\d+)', views.single_pic_like, name='singlePicLike'),
  url(r'^new/comment/(?P<username>[-_\w.]+)$', views.new_comment, name='comment'),
+ url(r'^search/', views.search_results, name='search_results'),
+
 
 ]
 
