@@ -1,13 +1,13 @@
-Project Name
+## Project Name
 Slygram
 
-Author
+## Author
 Sylviah Rutto
 
-Description
+## Description
 This is a clone of the famous instagram application for posting, sharing comments, and liking pictures
 
-BDD
+## BDD
 The behaviors implemented include;
 1 Displays all photos on database 
 2 Allows saving of uploaded images
@@ -17,7 +17,7 @@ The behaviors implemented include;
 6 Allows update of images
 7 Exit the application
 
-Set up and Installation
+## Set up and Installation
 1 Install python 3.6 version
 2 Install django=1.11.5
 3 Install Postgresql for databases
@@ -26,7 +26,7 @@ Set up and Installation
 6 Then run the application on terminal using the command 'python3.6 manage.py runserver
 7 Enjoy!
 
-Technologies used
+## Technologies used
 1 Python vs3.6
 2 Bootstrap
 3 Django
@@ -35,7 +35,7 @@ Technologies used
 6 WhiteNoise
 7 CSS
 
-License
+## License
 MIT License this application's source code is free for any open source projects
 
 ©Sylviah Rutto 2019| Moringa School
