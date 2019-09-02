@@ -1,6 +1,9 @@
  
-{% load bootstrap3 %} {% load staticfiles %}
+{% load bootstrap3 %} 
+{% load staticfiles %}
 {% block content%}
+
+
 <div class="container-fluid" style="margin-top:150px">
   {% if user.is_authenticated %}
   <div class="col-sm-7">
@@ -26,7 +29,7 @@
           </a>
           <i class="material-icons" style="float:right; font-size:40px"></i>
         </div>
-        <p style="margin-top:10px;font-weight:bolder; font-size:16px"> i class= " far fa-heart"> </i>{{image.likes}} Likes</p><br>
+        <p style="margin-top:10px;font-weight:bolder; font-size:16px"></i>{{image.likes}} Likes</p><br>
         {% for comment in comments %}
         <p style="margin-bottom:-1px"><span style=" margin-right:10px; font-weight:bolder; font-size:16px">{{comment.user}}</span>{{comment.comment}}</p>
         {% endfor %}
@@ -40,12 +43,12 @@
     <div class="col-sm-8">
       <div class="container-fluid" style="position:fixed; width:320px">
         <header style="margin-bottom:30px">
-          <img src="{{user_profile.profile_photo.url}}" alt="" style="height:50px;width:50px; border-radius:50%; float:left; margin-right:15px">
+          <img src="{{profile.profile_photo.url}}" alt="" style="height:50px;width:50px; border-radius:50%; float:left; margin-right:15px">
           <p style="font-weight:bold;font-size:16px">{{profile.user}}</p>
         </header>
         <hr>
-        <p style="float:left; font-size:15px; font-weight:bolder; color:grey">Stories</p>
-        <p style="float:right; font-weight:bolder; font-size:15px">Watch</p>
+        <p style="float:left; font-size:15px; font-weight:bolder; color:grey">User Stories</p>
+        <p style="float:right; font-weight:bolder; font-size:15px">Explore</p>
         <div class="stories" style="overflow-y:auto; height:300px;margin-top:50px;padding:10px; border-bottom: 1px solid #ddd; width:100%">
           {% for profile in profile %}
           <div class="user_stories" style="margin-bottom:20px">
