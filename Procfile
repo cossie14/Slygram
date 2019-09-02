@@ -1,0 +1,1 @@
+web: gunicorn slygram.wsgi --log-file -
