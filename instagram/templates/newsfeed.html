@@ -1,5 +1,4 @@
-  
-{% extends 'base.html' %} 
+ 
 {% load bootstrap3 %} {% load staticfiles %}
 {% block content%}
 <div class="container-fluid" style="margin-top:150px">
@@ -15,14 +14,14 @@
           <img src="{{image.image.url}}" alt="" style="height:50px;width:50px; border-radius:50%">
           <p style="display:inline; margin-left:10px; font-weight:bolder; font-size:16px">{{image.user}}</p>
         </header>
-        <a href="{% url 'singleImage' image.id%}">
+        <a href="{% url 'singlePic' image.id%}">
           <img src="{{image.image.url}}" class="img-responsive">
         </a>
         <div class="like" style="font-size:30px">
-          <a href="{% url 'singleImageLike' image.id%}">
+          <a href="{% url 'singlePicLike' image.id%}">
             <i class="material-icons">favorite_border</i>
           </a>
-          <a href="{% url 'newComment' image.user.username %}">
+          <a href="{% url 'comment' image.user.username %}">
             <i class="material-icons" style="margin-left:10px">chat_bubble_outline</i>
           </a>
           <i class="material-icons" style="float:right; font-size:40px">bookmark_border</i>
@@ -42,13 +41,13 @@
       <div class="container-fluid" style="position:fixed; width:320px">
         <header style="margin-bottom:30px">
           <img src="{{user_profile.profile_photo.url}}" alt="" style="height:50px;width:50px; border-radius:50%; float:left; margin-right:15px">
-          <p style="font-weight:bold;font-size:16px">{{user_profile.user}}</p>
+          <p style="font-weight:bold;font-size:16px">{{profile.user}}</p>
         </header>
         <hr>
         <p style="float:left; font-size:15px; font-weight:bolder; color:grey">Stories</p>
         <p style="float:right; font-weight:bolder; font-size:15px">Watch</p>
         <div class="stories" style="overflow-y:auto; height:300px;margin-top:50px;padding:10px; border-bottom: 1px solid #ddd; width:100%">
-          {% for profile in profiles %}
+          {% for profile in profile %}
           <div class="user_stories" style="margin-bottom:20px">
             <img src="{{profile.profile_photo.url}}" alt="" style="height:50px;width:50px; border-radius:50%; float:left; margin-right:15px">
             <a href="{% url 'userProfiles' profile.id %}"> <p style="font-weight:bold;font-size:16px">{{profile.user}}<br></a>

@@ -8,9 +8,9 @@ from .models import Image, Profile, Comments
 @login_required(login_url='/accounts/login/')
 def newsfeed(request):
     current_user = request.user
-    images = Image.objects.order_by('-date_posted')
-    profiles = Profile.objects.order_by('-update')
-    comments = Comments.objects.order_by('-comment_posted')
+    images = Image.objects.all()
+    profiles = Profile.objects.all()
+    comments = Comments.objects.all()
     return render(request, 'newsfeed.html', {'images':images, 'profiles':profiles, 'profile':profile, 'comments':comments})
 
 @login_required(login_url='/accounts/login/')
@@ -30,7 +30,7 @@ def new_story(request, username):
             image = form.save()
             image.user = request.user
             image.save()
-        return redirect('all-slygram')
+        return redirect('')
     else:
         form = NewStoryForm()
     return render(request, 'new_story.html', {"form": form})
@@ -60,7 +60,7 @@ def single_pic_like(request, photo_id):
     image = Image.objects.get(id=photo_id)
     image.likes = image.likes + 1
     image.save()
-    return redirect('all-slygram')
+    return redirect('')
 
 @login_required(login_url='/accounts/login/')
 def new_comment(request, username):
@@ -72,7 +72,7 @@ def new_comment(request, username):
             comment = form.save()
             comment.user = request.user
             comment.save()
-        return redirect('all-slygram')
+        return redirect('')
     else:
         form = NewCommentForm()
     return render(request, 'comment.html', {"form": form})
