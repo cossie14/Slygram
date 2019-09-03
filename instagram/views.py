@@ -16,7 +16,7 @@ def newsfeed(request):
 @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
-    profile = Profile.objects.get(user=current_user.id)
+
     images = Image.objects.all().filter(profile_id=current_user.id)
     return render(request, 'profile.html', {'images':images, 'profile':profile})
 
@@ -68,16 +68,13 @@ def new_comment(request, username):
     else:
         form = NewCommentForm()
     return render(request, 'comment.html', {"form": form})
-def search_results(request):
-
-    if 'article' in request.GET and request.GET["article"]:
-        search_term = request.GET.get("article")
-        searched_articles = Article.search_by_title(search_term)
+def find_profile(request):
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = Image.search_by_user(search_term)
         message = f"{search_term}"
-
-        return render(request, 'search.html',{"message":message,"articles": searched_articles})
+        return render(request, 'profile.html',{"message":message,"image": searched_images})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html',{"message":message})
-
+        message = "You haven't searched for any term yet"
+        return render(request, 'single_pic.html',{"message":message}) 
