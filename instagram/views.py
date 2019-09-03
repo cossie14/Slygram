@@ -38,7 +38,7 @@ def new_story(request, username):
 @login_required(login_url='/accounts/login')
 def profile(request):
     current_user = request.user
-    profile = Profile.objects.get(id=current_user.id)
+   
     images = Image.objects.all().filter(user_id=current_user.id)
     return render(request, 'profile.html', {'profile':profile, 'images':images})
 
