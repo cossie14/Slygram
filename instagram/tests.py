@@ -1,46 +1,62 @@
 from django.test import TestCase
-import datetime as dt
-from .models import Image, Profile
-from django.contrib.auth.models import User
+from .models import Profile,Image,Comments
 
 # Create your tests here.
-class ImageTestClass(TestCase):
-
+class ProfileTestClass(TestCase):
+    #Set Up method
     def setUp(self):
-        self.image = Image(image ='imageurl', image_name='baby', image_caption='gifts', likes=200, comments='blessings')
+        self.profile = Profile(profile_photo='great', bio='i m great')
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.image, Image))
+        self.assertTrue(isinstance(self.profile,Profile))
 
-    def test_save_method(self):
-        self.image.save_image()
-        images = Image.objects.all()
-        self.assertTrue(len(images)>0)
-    def test_delete_method(self):
-        self.image.save_image()
-        images = Image.objects.all()
-        self.image.delete_image()
-        images = Image.objects.all()
-        self.assertTrue(len(images)==0)
-
-
-class ProfileTestClas(TestCase):
-
-    def setUp(self):
-        user = User(username='sly')
-        self.profile = Profile(profile_photo='nice', bio='i m great',update='date', user=user)
-
-    def test_instance(self):
-        self.assertTrue(isinstance(self.profile, Profile))
-
+    #Testing save method
     def test_save_method(self):
         self.profile.save_profile()
-        profiles = Profile.objects.all()
-        self.assertTrue(len(profiles)>0)
+        profile = Profile.objects.all()
+        self.assertTrue(len(profile) > 0)
 
     def test_delete_method(self):
         self.profile.save_profile()
-        profiles = Profile.objects.all()
         self.profile.delete_profile()
-        profiles = Profile.objects.all()
-        self.assertTrue(len(profiles)==0)
+        profile = Profile.objects.all()
+        self.assertTrue(len(profile)==0)
+
+class ImageTestClass(TestCase):
+    #Set up method
+    def setUp(self):
+        self.image = Image(image='imageurl', image_name='fashion', image_caption='cool denim', profile='cool', likes='45', pub_date='12-03-2019')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.image,image))
+
+    #Testing the save method
+    def test_save_method(self):
+        self.image.save_image()
+        image = image.objects.all()
+        self.assertTrue(len(image) > 0)
+
+    def test_delete_method(self):
+        self.image.save_delete()
+        self.image.delete_image()
+        image = image.objects.all()
+        self.assertTrue(len(image)==0)  
+
+class commentsTestClass(TestCase):
+    #Set up method
+    def setUp(self):
+        self.comments = comments(comments='lovely', date='', image='imageurl')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.comments,comments))
+
+    #Testing the save method
+    def test_save_method(self):
+        self.comments.save_comments()
+        comments = comments.objects.all()
+        self.assertTrue(len(comments) > 0)
+
+    def test_delete_method(self):
+        self.comments.delete_comments()
+        comments = comments.objects.all()
+        self.assertTrue(len(comments)==0)  

@@ -13,7 +13,7 @@ urlpatterns=[
  
  url(r'^single_image/likes/(\d+)', views.single_pic_like, name='singlePicLike'),
  url(r'^new/comment/(?P<username>[-_\w.]+)$', views.new_comment, name='comment'),
- url(r'^search/', views.search_results, name='search_results'),
+
 
 
 ]
